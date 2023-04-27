@@ -1,29 +1,30 @@
-- [수업 정보](#-----)
-  * [수업 시간](#-----)
-  * [강사 정보](#-----)
-  * [목표](#--)
-- [프론트(맛보기)](#--------)
-  * [1. HTML5 **(Hyper Text Markup Language)**](#1-html5----hyper-text-markup-language---)
-  * [2. CSS3 ****(Cascading Style Sheet)****](#2-css3------cascading-style-sheet-----)
+- [수업 정보](#수업-정보)
+  * [수업 시간](#수업-시간)
+  * [강사 정보](#강사-정보)
+  * [목표](#목표)
+- [프론트(맛보기)](#프론트맛보기)
+  * [1. HTML5 **(Hyper Text Markup Language)**](#1-html5-hyper-text-markup-language)
+  * [2. CSS3 ****(Cascading Style Sheet)****](#2-css3-cascading-style-sheet)
   * [3. JS](#3-js)
-    + [var, let, const의 차이점](#var--let--const-----)
-    + [AJAX 개념](#ajax---)
-    + [form과 다른 점](#form------)
-  * [(참고)MVC 패턴](#----mvc---)
+    + [var, let, const의 차이점](#var-let-const의-차이점)
+    + [AJAX 개념](#ajax-개념)
+    + [form과 다른 점](#form과-다른-점)
+  * [(참고)MVC 패턴](#참고mvc-패턴)
 - [JAVA](#java)
-  * [자료형](#---)
-  * [객체지향 프로그래밍](#----------)
-    + [class란?](#class--)
-    + [Interface 핵심 개념](#interface------)
-    + [추상 클래스](#------)
-    + [Interface ≠ 추상 클래스](#interface---------)
-    + [사용 목적](#-----)
-    + [다형성](#---)
-    + [필드의 다형성](#-------)
-    + [매개변수의 다형성](#---------)
-    + [접근 제한자](#------)
-- [JSP&SERVLET](#jsp-servlet)
-    + [톰캣 설치](#-----)
+  * [자료형](#자료형)
+  * [객체지향 프로그래밍](#객체지향-프로그래밍)
+    + [class란?](#class란)
+    + [Interface 핵심 개념](#interface-핵심-개념)
+    + [추상 클래스](#추상-클래스)
+    + [Interface ≠ 추상 클래스](#interface-≠-추상-클래스)
+    + [사용 목적](#사용-목적)
+    + [다형성](#다형성)
+    + [필드의 다형성](#필드의-다형성)
+    + [매개변수의 다형성](#매개변수의-다형성)
+    + [접근 제한자](#접근-제한자)
+- [JSP&SERVLET](#jspservlet)
+    + [톰캣 설치](#톰캣-설치)
+    + [이클립스 환경 세팅](#이클립스-환경-세팅)
 
 <br><br><br><br>
 # 수업 정보
@@ -49,6 +50,10 @@ e-mail: yuna706lee@gmail.com
 1. **HTML5, CSS3, javascript를 이용하여 자기소개 페이지를 퍼블리싱 할 수 있다.**
 2. **java의 기본 문법을 파악하여 코드를 작성할 수 있다.**
 3. **spring boot를 이용하여 웹 애플리케이션 서버를 구동시킬 수 있다.**
+
+<br>
+
+<br>
 
 # 프론트(맛보기)
 
@@ -467,6 +472,10 @@ MVC: Model, View, Controller의 약자
 - view = jsp
 - controller = service, controller, DAO
 
+<br>
+
+<br>
+
 # JAVA
 
 ## 자료형
@@ -714,6 +723,12 @@ class Tiger **extends Predator** implements Barkable {
 ![Untitled](/readmeImg/7.java.png)
 
 연습 문제 1, 2, 4, 7, (~~6, 8,~~ 9) - 이야기하기
+
+
+<br>
+
+<br>
+
 
 # JSP&SERVLET
 
