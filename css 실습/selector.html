@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1. 전체 선택자 */
+        * {
+            color: #000000;
+        }
+
+        /* 2. 태그 선택자 */
+        h1 {
+            font-family: serif;
+            color: red;
+            font-size: 60px;
+        }
+
+        /* 3. 클래스 선택자 */
+        .item {
+            font-style: italic;
+        }
+
+        /* 4. 아이디 선택자 */
+        #listWrap {
+            list-style: decimal;
+        }
+
+        /* 5. 복합 선택자 */
+        h1 ~ ul{
+            background-color: #aabbcc;
+        }
+        ul> li> i{
+            color: #bbffaa;
+        }
+
+        /* 6. 속성 선택자 */
+        a[href="www.naver.com"]{
+            background-color: red;
+        }
+
+        /* 7. 가상 선택자 */
+        ul> li:last-child{
+            padding: 10px;
+        }
+        ul> li:last-child> span{
+            font-weight: bold;
+        }
+        ul> li:last-child:hover> span{
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>단결!!!</h1>
+    <ul id="listWrap">
+        <li class="item"><small><a href="www.naver.com">네이버로 이동</a></small></li>
+        <li class="item">저는 <b>이유나</b>입니다.</li>
+        <li class="item">저는 <i>2002</i>년생이고 <u>월드컵</u> 못봤습니다.</li>
+        <li class="item"><span>노래</span>를 듣기 좋아해요.</li>
+    </ul>
+    <ul id="listWrap">
+        <li class="item"><small><a href="www.naver.com">네이버로 이동</a></small></li>
+        <li class="item">저는 <b>이유나</b>입니다.</li>
+        <li class="item">저는 <i>2002</i>년생이고 <u>월드컵</u> 못봤습니다.</li>
+        <li class="item"><span>노래</span>를 듣기 좋아해요.</li>
+    </ul>
+    <ul id="listWrap">
+        <li class="item"><small><a href="www.naver.com">네이버로 이동</a></small></li>
+        <li class="item">저는 <b>이유나</b>입니다.</li>
+        <li class="item">저는 <i>2002</i>년생이고 <u>월드컵</u> 못봤습니다.</li>
+        <li class="item"><span>노래</span>를 듣기 좋아해요.</li>
+    </ul>
+</body>
+</html>
