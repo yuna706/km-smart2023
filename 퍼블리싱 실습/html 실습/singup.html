@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <hr>
+    <form action="/welcome.html" method="get">
+        <ul>
+            <li>아이디* <input type="text" name="id" id="id" required></li>
+            <li>비밀번호* <input type="password" name="password" id="password" required></li>
+            <li>이메일<input type="email" name="email" id="email"></li>
+            <li>프로필 사진<input type="file" name="file" id="email"></li>
+            <li>성별
+                <input type="radio" name="gender" id="girl">
+                <label for="girl">여자</label>
+                <input type="radio" name="gender" id="boy">
+                <label for="boy">남자</label>
+            </li>
+            <li>소속
+                <select name="dep" id="dep">
+                    <option value="9반">9반</option>
+                    <option value="10반">10반</option>
+                </select>
+            </li>
+            <li>생년월일 <input type="date" name="date" id="date"></li>
+        </ul>
+        <button>전송</button>
+    </form>
+</body>
+</html>
