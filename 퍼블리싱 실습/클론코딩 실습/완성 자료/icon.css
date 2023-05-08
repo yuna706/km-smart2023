@@ -1,0 +1,88 @@
+.ico_korean[data-v-ef6c51ca],
+.ico_language[data-v-41fcfff3],
+.ico_mode_dark[data-v-9f42629e],
+.ico_mode_light[data-v-5fa5aeb3],
+.ico_search[data-v-ae75f7f2] {
+    stroke: #000;
+}
+
+.ico_share .fill[data-v-f9455140] {
+    fill: #bbb
+}
+
+.ico_logo .path[data-v-37d948ec] {
+    fill: #000;
+}
+
+.ico_pagenation[data-v-1373c9bc] {
+    width: 42px;
+    height: 42px
+}
+
+.ico_pagenation circle[data-v-d6d40808] {
+    fill: #eee;
+}
+
+.ico_pagenation .stroke[data-v-d6d40808] {
+    stroke: #888
+}
+
+.ico_pagenation:active circle[data-v-d6d40808],
+.ico_pagenation:hover circle[data-v-d6d40808] {
+    fill: #dedede
+}
+
+.ico_pagenation:active .stroke[data-v-d6d40808],
+.ico_pagenation:hover .stroke[data-v-d6d40808] {
+    stroke: #000
+}
+
+.ico_pagenation:active circle[data-v-1373c9bc],
+.ico_pagenation:hover circle[data-v-1373c9bc] {
+    fill: #eee;
+}
+
+.ico_pagenation[data-v-1373c9bc].left {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.ico_pagenation:active circle,
+.ico_pagenation:hover circle {
+    fill: #eee;
+}
+
+.ico_pagenation:active .stroke,
+.ico_pagenation:hover .stroke {
+    stroke: #888
+}
+
+.ico_top circle[data-v-2e94cb1c] {
+    fill: #000
+}
+
+.ico_top .stroke[data-v-2e94cb1c] {
+    stroke: #fff
+}
+
+.ico_top:active circle[data-v-2e94cb1c],
+.ico_top:hover circle[data-v-2e94cb1c] {
+    fill: #666
+}
+
+.ico_outlink[data-v-c1d21be8] {
+    stroke: #999
+}
+
+a:active .ico_outlink[data-v-c1d21be8] {
+    stroke: #eee
+}
+
+.ico_arrow .stroke[data-v-d180c69a] {
+    stroke: #999
+}
+
+a:active .ico_arrow[data-v-15aff456] {
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg)
+}
