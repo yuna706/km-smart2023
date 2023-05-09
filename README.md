@@ -355,8 +355,12 @@ e-mail: yuna706lee@gmail.com
     5. font-size, font-style, color: 글자 서식
     6. background: 요소의 배경
         - img, color, position, size 등등
-- 실습 - 자기 소개 페이지 만들어보기
+---
+## ※퍼블리싱 실습※
+1. 자기 소개 페이지 만들어보기
+2. 카카오뉴스 클론코딩하기 - [https://www.kakaocorp.com/page/news?tab=all](https://www.kakaocorp.com/page/news?tab=all)
 
+---
 ## 3. JS
 [https://developer.mozilla.org/ko/](https://developer.mozilla.org/ko/)
 
