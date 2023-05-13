@@ -1,0 +1,311 @@
+@font-face {
+    font-family: KakaoSmall;
+    font-weight: 300;
+    src: local("☺"),url(/fonts/KakaoSmall-Light-v1.0.ef99f33.woff2) format("woff2"),url(/fonts/KakaoSmall-Light-v1.0.1e071e3.woff) format("woff")
+}
+
+@font-face {
+    font-family: KakaoSmall;
+    font-weight: 400;
+    src: local("☺"),url(/fonts/KakaoSmall-Regular-v1.0.5c6e996.woff2) format("woff2"),url(/fonts/KakaoSmall-Regular-v1.0.0bbac94.woff) format("woff")
+}
+
+@font-face {
+    font-family: KakaoSmall;
+    font-weight: 700;
+    src: local("☺"),url(/fonts/KakaoSmall_Bold_OTF.b852aad.woff2) format("woff2"),url(/fonts/KakaoSmall_Bold_OTF.ff0833f.woff) format("woff")
+}
+
+@font-face {
+    font-family: KakaoBig;
+    font-weight: 400;
+    src: local("☺"),url(/fonts/KakaoBig-Regular-v1.0.4bf7d77.woff2) format("woff2"),url(/fonts/KakaoBig-Regular-v1.0.0e86a57.woff) format("woff")
+}
+
+@font-face {
+    font-family: KakaoBig;
+    font-weight: 700;
+    src: local("☺"),url(/fonts/KakaoBig-Bold-v1.0.335a95e.woff2) format("woff2"),url(/fonts/KakaoBig-Bold-v1.0.79780f8.woff) format("woff")
+}
+
+@font-face {
+    font-family: KakaoBig;
+    font-weight: 800;
+    src: local("☺"),url(/fonts/KakaoBig_ExtraBold_OTF.2612e28.woff2) format("woff2"),url(/fonts/KakaoBig_ExtraBold_OTF.b330e0d.woff) format("woff")
+}
+
+*{
+    font-style: none;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #000;
+    background: none;
+    border: none;
+    font-family: KakaoSmall, Apple SD Gothic Neo, Malgun Gothic, 맑은 고딕, sans-serif;
+}
+
+header{
+    width: 1300px;
+    height: 72px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 74px;
+    height: 24px;
+}
+
+/* header nav */
+nav.gnb_content {
+    width: 1300px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+nav.gnb_content ul {
+    display: flex;
+}
+nav.gnb_content> ul> li{
+    padding: 0 28px;
+    position: relative;
+}
+
+nav.gnb_content> ul> li> a{
+    color: #555;
+    font-weight: 700;
+    line-height: 72px;
+    font-family: KakaoBig;
+    font-size: 16px;
+}
+nav.gnb_content> ul> li:hover> a{
+    color: #000;
+}
+
+nav.gnb_content> ul> li> ul {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    background-color: #000;
+    border-radius: 25px;
+    height: 50px;
+    padding: 0 20px;
+}
+nav.gnb_content> ul> li:hover > ul{
+    display: flex;
+}
+nav.gnb_content> ul> li> ul> li> a {
+    color: #fff;
+    line-height: 50px;
+    padding: 0 10px;
+}
+nav.gnb_content> ul> li> ul> li:hover > a {
+    font-weight: 700;
+}
+
+
+.util {
+    display: flex;
+}
+.util button svg {
+    width: 24px;
+    padding: 0 14px;
+}
+
+/* main content */
+main {
+    width: 1300px;
+    margin: 0 auto;
+}
+main:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.main_title{
+    margin: 80px 0;
+}
+.main_title img{
+    width: 70px;
+    margin-right: 10px;
+}
+.main_title h1 {
+    display: flex;
+    align-items: center;
+    font-size: 46px;
+}
+.main_title em {
+    font-style: normal;
+    font-size: 38px;
+}
+
+.main_content h2{
+    font-size: 28px;
+}
+.main_content ul{
+    display: flex;
+    margin: 30px 0;
+    gap: 10px;
+}
+.main_content ul li{
+    background: #eee;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.main_content ul li.on{
+    background: #000;
+    color: #fff;
+    font-weight: 700;
+}
+
+.cont_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+.cont_list .item{
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.item .text_wrap{
+    padding: 20px;
+}
+.item .text_wrap .box_head{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.item .text_wrap .box_head .left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.item .text_wrap .box_head .left img {
+    width: 40px;
+}
+.item .text_wrap .box_head .left .type {
+    background: #eee;
+    padding: 10px;
+    border-radius: 15px;
+    font-style: 14px;
+}
+.item .text_wrap .box_head .left .date {
+    color: #555;
+    font-style: 14px;
+}
+.item .text_wrap .box_head .right svg {
+    width: 20px;
+}
+
+.item .text_wrap .text .title {
+    font-family: KakaoBig;
+    font-weight: 700;
+    font-size: 30px;
+}
+.item .text_wrap .text .hashtag {
+    color: #555;
+    margin-top: 30px;
+}
+
+.item img.news_img{
+    width: 100%;
+    height: 306px;
+}
+
+/* pagination */
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+.pagination span {
+    width: 40px;
+    text-align: center;
+    color: #555;
+}
+.pagination span.on {
+    color: #000;
+}
+.pagination svg {
+    margin: 0 10px;
+}
+
+.ico_top{
+    width: 50px;
+    float: right;
+    margin-top: 100px;
+}
+
+/* footer */
+footer {
+    border-top: 1px solid #000;
+    margin: 30px 0;
+    padding-top: 30px;
+}
+footer svg {
+    width: 9px;
+}
+.foot_cont{
+    width: 1300px;
+    margin: 0 auto;
+}
+.foot_nav > ul{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.foot_nav > ul> li> ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.foot_nav > ul> li> ul> li{
+    color: #888;
+}
+.foot_nav > ul> li> ul> li:hover,
+.foot_nav > ul> li> ul> li:hover svg{
+    color: #000;
+    stroke: #000;
+}
+
+.foot_nav > ul> li> ul> li:first-child,
+.foot_nav > ul> li> ul> li.bold{
+    color: #000;
+    font-weight: 700;
+    stroke: #000;
+}
+.foot_nav > ul> li> ul> li.bold{
+    margin: 10px 0;
+}
+
+.foot_relation{
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+.foot_relation .left .group_info ul{
+    display: flex;
+    gap: 24px;
+    padding-bottom: 30px;
+}
+
+.foot_relation .right .tit a{
+    display: flex;
+    justify-content: space-between;
+    background: #eee;
+    width: 150px;
+    border-radius: 20px;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+}
