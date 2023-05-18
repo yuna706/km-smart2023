@@ -362,45 +362,16 @@ e-mail: yuna706lee@gmail.com
 
 ---
 ## 3. JS
-[https://developer.mozilla.org/ko/](https://developer.mozilla.org/ko/)
 
-```html
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js 놀기</title>
-</head>
-<body>
-    <button onclick="getMenu()">메뉴를 주세요!</button>
-</body>
-</html>
-```
+### 자바스크립트란?
 
-```jsx
-// menu는 전역 변수 = 어디서든 접근이 가능함
-// const 는 상수형으로 변경이 불가능
-const menu = ["중국집", "서브웨이", "분식", "초밥", "피자"];
+> 💡 **‘웹페이지에 생동감을 불어넣기 위해’ 만들어진 프로그래밍 언어**
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
-}
 
-function getMenu(){
-    let min = 0; //함수내에서만 사용이 가능한 지역 변수
-    let max = menu.length - 1;
-    let randVal = getRandomInt(min, max);
-    let p = document.createElement("p");
-    p.textContent = menu[randVal];
-    document.body.appendChild(p);
-}
-```
 
-### var, let, const의 차이점
+자바스크립트로 작성한 프로그램을 **스크립트(script)** 라고 부릅니다. 스크립트는 웹페이지의 HTML 안에 작성할 수 있는데, 웹페이지를 불러올 때 스크립트가 자동으로 실행됩니다. 스크립트는 특별한 준비나 컴파일 없이 보통의 문자 형태로 작성할 수 있고, 실행도 할 수 있습니다.
+
+### 변수와 상수 - var, let, const의 차이점
 
 - var : 재선언, 재할당 가능
 - let : 재선언 불가능, 재할당 가능
@@ -442,6 +413,143 @@ function getMenu(){
     참고 자료: [var, let, const 차이점 (velog.io)](https://velog.io/@bathingape/JavaScript-var-let-const-%EC%B0%A8%EC%9D%B4%EC%A0%90)
     
 
+### **자료형과 형변환**
+
+![Untitled](/readmeImg/js%EA%B0%9D%EC%B2%B4.png)
+
+자바스크립트는 **묵시적 형변환**을 지원함
+
+```jsx
+let numberA = 12;
+let numberB = "2";
+console.log(numberA * numberB) // 문자열이 숫자로 형변환이 됨
+
+console.log(numberA + numberB) // 숫자가 문자열로 형변환이 됨
+
+// 결과 출력
+// 24
+// 122
+
+// 해결법
+console.log(numberA + parseInt(numberB));
+```
+
+### 조건문
+
+if & switch case & 삼항연산
+
+```jsx
+let a = 7;
+
+// if 문
+if(a > 10){
+	console.log("a는 10보다 큽니다.");
+} else if(a > 7){
+	console.log("a는 7보다 큽니다.");
+} else if(a > 5){
+	console.log("a는 5보다 큽니다.");
+} else {
+	console.log("a는 5보다 작습니다.");
+}
+
+// switch case 문
+let gender = "f";
+switch(gender) {
+	case "f" : 
+		console.log("여성입니다.");
+		break;
+	case "m" : 
+		console.log("남성입니다.");
+		break;
+	default:
+		console.log("f/m 중 택하십시오.");
+}
+
+let text;
+switch(gender) {
+	case "f" : 
+		text = "여성";
+		break;
+	case "m" : 
+		text = "남성"
+		break;
+	default:
+		console.log("오류");
+}
+console.log(text + "입니다.");
+
+gender = "m"
+
+// 삼항연산자
+text = gender == "f" ? "여성" : "남성";
+console.log(text + "입니다.");
+```
+
+### 함수 & 콜백함수
+
+```jsx
+// 반환값이 있는 함수
+function fn0(인수){
+	return 인수;
+}
+
+// 반환값이 없는 함수
+function fn1(인수){
+	console.log(인수);
+}
+
+function fn2(함수인수){
+	함수인수();
+}
+```
+
+**함수 선언식 & 함수 표현식 & 화살표 함수**
+
+```jsx
+function fn0(인수){
+	return 인수;
+}
+let fn1 = function (인수) {
+	return 인수;
+}
+let fn2 = (인수) => {
+	return 인수;
+}
+```
+
+### 객체
+
+[JavaScript - 객체(Object)에 대해 알아보자 (velog.io)](https://velog.io/@surim014/%EC%9B%B9%EC%9D%84-%EC%9B%80%EC%A7%81%EC%9D%B4%EB%8A%94-%EA%B7%BC%EC%9C%A1-JavaScript%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80-part-7-Object-35k01xmdfp)
+
+### 반복문
+
+```jsx
+let arr = [3, 4, 5];
+
+for (let i = 0; i < arr.length; i++) { // 배열 arr의 모든 요소의 인덱스(index)를 출력함.
+  console.log(arr[i]);
+}
+
+for (let value of arr) { // 위와 같은 동작을 하는 for / of 문
+  console.log(value);
+}
+
+let obj = {
+  name : "이순신",
+  age : 20
+};
+
+for (let i in obj) {
+  console.log(i);
+}
+```
+
+### 배열 & **Spread**
+
+### 동기 & 비동기
+
+### async & await
+
 ### AJAX 개념
 
 **AJAX란?** 서버와 통신하기 위해 **`XMLHttpRequest`** 객체를 사용하는 것
@@ -453,12 +561,11 @@ function getMenu(){
 
 ### form과 다른 점
 
-<aside>
-💡 **form(동기식) :** action 속성에 지정한 url로 데이터를 전송하며 **응답 데이터로 이동 및 표출**
 
-**ajax(비동기식):** 지정한 url로 데이터를 전송하여 **응답 값을 데이터 객체**로 받아와 js에서 가공이 가능함
+>💡 **form(동기식) :** action 속성에 지정한 url로 데이터를 전송하며 **응답 데이터로 이동 및 표출**
 
-</aside>
+> 💡 **ajax(비동기식):** 지정한 url로 데이터를 전송하여 **응답 값을 데이터 객체**로 받아와 js에서 가공이 가능함
+
 
 참고 자료: [Ajax 시작하기 - 웹 개발자 안내서 | MDN (mozilla.org)](https://developer.mozilla.org/ko/docs/Web/Guide/AJAX/Getting_Started)
 
