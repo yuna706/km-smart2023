@@ -521,6 +521,242 @@ let fn2 = (인수) => {
 
 [JavaScript - 객체(Object)에 대해 알아보자 (velog.io)](https://velog.io/@surim014/%EC%9B%B9%EC%9D%84-%EC%9B%80%EC%A7%81%EC%9D%B4%EB%8A%94-%EA%B7%BC%EC%9C%A1-JavaScript%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80-part-7-Object-35k01xmdfp)
 
+### 배열 & Object
+
+```jsx
+let fruits = ['사과', '바나나']
+
+console.log(fruits.length)
+// 2
+
+// 배열의 항목들을 순환하며 처리하기
+fruits.forEach(function (item, index, array) {
+  console.log(item, index)
+})
+// 사과 0
+// 바나나 1
+
+// 배열 끝에 항목 추가하기
+let newLength = fruits.push('오렌지')
+
+// 배열 끝에서부터 항목 제거하기
+let last = fruits.pop() // 끝에있던 '오렌지'를 제거
+// ["사과", "바나나"]
+
+// 배열 앞에서부터 항목 제거하기
+let first = fruits.shift() // 제일 앞의 '사과'를 제거
+// ["바나나"]
+
+// 배열 안 항목의 인덱스 찾기
+fruits.push('망고')
+// ["딸기", "바나나", "망고"]
+
+let pos = fruits.indexOf("바나나")
+// 1
+
+// 인덱스 위치에 잇는 항목 제거하기
+let removedItem = fruits.splice(pos, 1) // 항목을 제거하는 방법
+
+// ["딸기", "망고"]
+```
+
+Object란? **자바스크립트의 객체는 키(key)과 값(value)으로 구성된 프로퍼티(Property)들의 집합**
+
+⇒ java의 map 같이 사용할 수 있음(다른 개념이 많지만 너무 어렵기에 생략)
+
+```jsx
+// 생성 방법
+let emptyObject0 = new Object();
+let emptyObject1 = {};
+
+let person = {
+  name: 'Lee',
+  gender: 'female',
+  sayHello: function () {
+    console.log('Hi! My name is ' + this.name);
+  }
+};
+
+console.log(typeof person); // object
+console.log(person); // {name: "Lee", gender: "female", sayHello: ƒ}
+
+person.sayHello(); // Hi! My name is Lee
+
+person.name = "Lee yuna";
+
+console.log(person["name"]); // Lee yuna
+console.log(person.gender); // female
+```
+
+### **Spread**
+
+**스프레드 연산자란?** **배열, 문자열, 객체** 등 반복 가능한 객체(Iterable Object)를 개별 요소로 분리할 수 있는 문법
+
+```jsx
+// Array
+let arr1 = [1, 2, 3, 4, 5]; 
+let arr2 = [...arr1, 6, 7, 8, 9]; 
+
+console.log(arr2); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+
+// String
+let str1 = 'paper block'; 
+let str2 = [...str1]; 
+console.log(str2); // [ "p", "a", "p", "e", "r", " ", "b", "l", "o", "c", "k" ]
+```
+
+[[ES6] Spread Operator (스프레드 연산자) | 쇼타임의 Paper Block (tistory.com)](https://paperblock.tistory.com/62)
+
+### 깊은 복사 & 얕은 복사
+
+**원시값 -** 기본 자료형(단순한 데이터)
+
+- Number
+- String
+- Boolean
+- Null
+- Undefined
+
+**참조값 -** 메모리에 저장된 객체
+
+- Object
+- Symbol
+
+원시값은 값을 복사 할 때 복사된 값을 다른 메모리에 할당 하기 때문에 원래의 값과 복사된 값이 서로에게 영향을 미치지 않음
+
+```jsx
+const a = 1;
+let b = a;
+
+b = 2
+
+console.log(a); //1
+console.log(b); //2
+```
+
+하지만 참조값은 변수가 객체의 주소를 가리키는 값이기 때문에 복사된 값(주소)이 같은 값을 가리킴
+
+```jsx
+const a = {number: 1};
+let b = a;
+
+b.number = 2
+
+console.log(a); // {number: 2}
+console.log(b); // {number: 2}
+```
+
+---
+
+**얕은 복사**
+
+
+> 💡 **얕은 복사란 객체를 복사할 때 기존 값과 복사된 값이 같은 참조를 가리키고 있는 것을 말합니다.객체 안에 객체가 있을 경우 한 개의 객체라도 기존 변수의 객체를 참조하고 있다면 이를 얕은 복사라고 합니다.**
+
+****Array.prototype.slice()****
+
+```jsx
+const original = [
+  [1, 1, 1, 1],
+  [0, 0, 0, 0],
+  [2, 2, 2, 2],
+  [3, 3, 3, 3],
+];
+ 
+const copy = original.slice();
+ 
+console.log(JSON.stringify(original) === JSON.stringify(copy)); // true
+ 
+// 복사된 배열에만 변경과 추가.
+copy[0][0] = 99; 
+copy[2].push(98);
+ 
+console.log(JSON.stringify(original) === JSON.stringify(copy)); // true
+ 
+console.log(original);
+// [ [ 99, 1, 1, 1 ], [ 0, 0, 0, 0 ], [ 2, 2, 2, 2, 98 ], [ 3, 3, 3, 3 ] ]출력
+console.log(copy);
+// [ [ 99, 1, 1, 1 ], [ 0, 0, 0, 0 ], [ 2, 2, 2, 2, 98 ], [ 3, 3, 3, 3 ] ]출력
+```
+
+****Object.assign()****
+
+```jsx
+const object = {
+  a: "a",
+  number: {
+    one: 1,
+    two: 2,
+  },
+};
+ 
+const copy = Object.assign({}, object);
+ 
+copy.number.one = 3;
+ 
+console.log(object === copy); // false
+console.log(object.number.one  === copy.number.one); // true
+```
+
+****Spread 연산자 (전개 연산자)****
+
+```jsx
+const object = {
+  a: "a",
+  number: {
+    one: 1,
+    two: 2,
+  },
+};
+ 
+const copy = {...object}
+ 
+copy.number.one = 3;
+ 
+console.log(object === copy); // false
+console.log(object.number.one  === copy.number.one); // true
+```
+
+---
+
+**********************깊은 복사**********************
+
+
+> 💡 **깊은 복사**된 객체는 객체 안에 객체가 있을 경우에도 원본과의 참조가 완전히 끊어진 객체를 말합니다.
+
+
+
+****JSON.parse && JSON.stringify****
+
+```jsx
+const object = {
+  a: "a",
+  number: {
+    one: 1,
+    two: 2,
+  },
+  arr: [1, 2, [3, 4]],
+};
+ 
+const copy = JSON.parse(JSON.stringify(object));
+ 
+copy.number.one = 3;
+copy.arr[2].push(5);
+ 
+console.log(object === copy); // false
+console.log(object.number.one === copy.number.one); // false
+console.log(object.arr === copy.arr); // false
+ 
+console.log(object); // { a: 'a', number: { one: 1, two: 2 }, arr: [ 1, 2, [ 3, 4 ] ] }
+console.log(copy); // { a: 'a', number: { one: 3, two: 2 }, arr: [ 1, 2, [ 3, 4, 5 ] ] }
+```
+
+**JSON.stringify()** 는 객체를 json 문자열로 변환하는데 이 과정에서 원본 객체와의 참조가 모두 끊어짐
+
+객체를 json 문자열로 변환 후, **JSON.parse()** 를 이용해 다시 원래 객체(자바스크립트 객체)로 만들어줌
+
+이 방법이 가장 간단하고 쉽지만 다른 방법에 비해 **느리다**는 것과 객체가 function일 경우,  undefined로 처리한다는 것이 단점
+
 ### 반복문
 
 ```jsx
@@ -544,13 +780,64 @@ for (let i in obj) {
 }
 ```
 
-### 배열 & **Spread**
-
 ### 동기 & 비동기
+
+![images_daybreak_post_4dfb762a-30f3-48ed-a380-4260f8c7e39f_스크린샷 2020-07-09 16.39.35.png](/readmeImg/%EB%8F%99%EA%B8%B0%EB%B9%84%EB%8F%99%EA%B8%B0.png)
+
+- 동기 방식은 서버에서 요청을 보냈을 때 응답이 돌아와야 다음 동작을 수행할 수 있다. 즉 A작업이 모두 진행 될때까지 B작업은 대기해야한다.
+- 비동기 방식은 반대로 요청을 보냈을 때 응답 상태와 상관없이 다음 동작을 수행 할 수 있다. 즉 A작업이 시작하면 동시에 B작업이 실행된다. A작업은 결과값이 나오는대로 출력된다.
+
+```jsx
+console.log("1");
+console.log("2");
+console.log("3");
+
+// 결과
+// 1
+// 2
+// 3
+```
+
+```jsx
+console.log("1");
+setTimeout(() => console.log("2"), 0)
+console.log("3");
+
+// 결과
+// 1
+// 3
+// 2
+```
 
 ### async & await
 
-### AJAX 개념
+### async
+
+`async`는 function앞에 위치한다. function앞에 `async`를 붙이면 해당 함수는 항상 `promise`를 반환한다.
+
+### await
+
+`await`를 만나면 `promise`가 처리될 때 까지 기다린다. 결과는 그 이후에 변환된다. 일반 함수에는 사용할 수 없다. `async`함수가 아닌데 `await`를 사용하면 문법 에러가 발생한다. 위에도 말했듯이 `await`는 `async` 함수에서만 발생한다.
+
+```jsx
+async function 함수명(){
+ await 비동기처리_메서드명();
+}
+```
+
+```jsx
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function process() {
+  console.log('안녕하세요!');
+  await sleep(1000); // 1초쉬고
+  console.log('반갑습니다!');
+}
+
+process();
+```
 
 **AJAX란?** 서버와 통신하기 위해 **`XMLHttpRequest`** 객체를 사용하는 것
 
