@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열과 Object</title>
+    <script>
+        let fruits = ["사과", "바나나"];
+        
+        console.log(fruits.length);
+
+        fruits.forEach((item, idx, array) => {
+            console.log(item, idx);
+        });
+
+        // 데이터 삽입
+        fruits.push("오렌지");
+        
+        console.log(fruits);
+        
+        // 끝에서 제거
+        fruits.pop();
+        // 앞에서 제거
+        fruits.shift();
+
+        console.log(fruits);
+
+        fruits.push("딸기");
+        fruits.push("망고");
+        fruits.push("망고");
+        fruits.push("망고");
+        fruits.push("망고");
+
+        // 항목 안의 인덱스 찾기
+        console.log(fruits, fruits.indexOf("딸기"));
+        // 인덱스에 있는 항목 제거
+        fruits.splice(1, 5);
+        console.log(fruits);
+
+        console.log("====================================");
+
+///////////////////////// Object
+        let emptyObj0 = new Object();
+        let emptyObj1 = {};
+
+        let person = {
+            name: "lee yuna",
+            gender: "female",
+            sayHello: function () {
+                console.log("my name is " + this.name)
+            }
+        }
+
+        console.log(typeof person);
+        console.log(person);
+
+        person.sayHello();
+
+        person.age = 18;
+        person['school'] = "근명";
+
+        console.log(person["age"]);
+        console.log(person.school);
+
+
+
+        let fruits1 = ["사과", "바나나"];
+        let fruits2 = ["수박", "딸기"];
+        fruits1.push(...fruits2);
+        console.log(fruits1);
+        let fruits3 = [...fruits1, "복숭아", ...fruits2];
+        console.log(fruits3);
+
+
+
+        let str1 = "lee";
+        let str2 = "yuna";
+        console.log([...str1], str2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

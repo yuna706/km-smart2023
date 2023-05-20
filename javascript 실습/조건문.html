@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문</title>
+
+    <script>
+        
+        let a = 7;
+
+        if(a > 10){
+            console.log("a는 10보다 큽니다.");
+        } else if(a > 7){
+            console.log("a는 7보다 큽니다.");
+        } else if(a > 5){
+            console.log("a는 5보다 큽니다.");
+        } else {
+            console.log("a는 5보다 작습니다.")
+        }
+
+        const gender = "f";
+
+        switch(gender) {
+            case 'f': {
+                console.log("여성입니다.");
+                break;
+            }
+            case "m": {
+                console.log("남성입니다.");
+                break;
+            }
+            default: {
+                console.log("선택하지 않았습니다.");
+                break;
+            }
+        }
+
+        // 삼항연산식
+        let genderText = gender == "f" ? "여성" : "남성";
+        console.log(genderText + "입니다.");
+
+        // 검사
+        console.log(a == "7");
+        console.log(a == 7);
+
+        // 엄격한 검사
+        console.log(a === "7");
+        console.log(a === 7);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

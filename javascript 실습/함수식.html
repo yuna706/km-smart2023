@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수식</title>
+
+    <script>
+        // 반환값이 있는 함수
+        function fn0(a){
+            return ++a;
+        }
+        // 반환값이 없는 함수
+        function fn1(a){
+            console.log(a + "~짠~");
+        }
+        // 함수를 인수로 받는 함수
+        function fn2(a){
+            a("인수입니다.");
+        }
+
+        fn0(1);
+        fn1("fn1입니다.");
+        fn2(fn1);
+
+
+        fn00("A");
+        fn01("A"); // error!!
+        fn02("A");
+        fn03("A");
+
+        // 함수 선언식
+        function fn00(a){
+            return a;
+        }
+        // 함수 표현식
+        let fn01 = function (a){
+            return a;
+        }
+        // 화살표 함수
+        let fn02 = (a) => {
+            return a;
+        }
+        let fn03 = a => console.log(a);
+
+        const object = {
+            name : "yuna",
+            age : "22",
+            skill : () => {
+                console.log();
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

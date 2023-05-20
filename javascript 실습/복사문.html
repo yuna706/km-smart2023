@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>깊은 복사 & 얕은 복사</title>
+    <script>
+        // array 얕은 복사
+        const original = [
+            [1,1,1,1],
+            [0,0,0,0],
+            [2,2,2,2],
+            [3,3,3,3]
+        ]
+
+        const copy = original;
+        copy.push([4,4,4,4]);
+        
+        console.log(original);
+        console.log(copy);
+
+        const copy2 = original.slice();
+        copy2.push("5");
+        console.log(original);
+        console.log(copy2);
+
+        copy2[2].push("55");
+
+        console.log(original);
+        console.log(copy2);
+
+        // object 얕은 복사
+        const object = {
+            a: "A",
+            number: {
+                one: 1,
+                two: 2
+            }
+        }
+        console.log("====================================");
+
+        const objCopy = Object.assign({}, object);
+        console.log(objCopy);
+
+        objCopy.number.one = "one";
+
+        console.log(object);
+        console.log(objCopy);
+        console.log("====================================");
+
+        // 스프레드 얕은 복사
+        const copy3 = {...object};
+        copy3.b = "B"
+        console.log(copy3);
+        console.log(object);
+
+        console.log("====================================");
+
+        // 깊은 복사
+        const objCopy2 = JSON.parse(JSON.stringify(object));
+        console.log(objCopy2);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
