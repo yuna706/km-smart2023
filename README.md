@@ -856,6 +856,15 @@ process();
 
 참고 자료: [Ajax 시작하기 - 웹 개발자 안내서 | MDN (mozilla.org)](https://developer.mozilla.org/ko/docs/Web/Guide/AJAX/Getting_Started)
 
+<br>
+<br>
+
+**JavaScript 강의 추천** 
+- [드림코딩 - 자바스크립트 기초 강의](https://www.youtube.com/playlist?list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2)
+- [생활코딩 - WEB2-JAvaScript](https://www.youtube.com/playlist?list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf)
+<br>
+<br>
+
 ## (참고)MVC 패턴
 
 MVC: Model, View, Controller의 약자
