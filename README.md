@@ -856,6 +856,15 @@ process();
 
 참고 자료: [Ajax 시작하기 - 웹 개발자 안내서 | MDN (mozilla.org)](https://developer.mozilla.org/ko/docs/Web/Guide/AJAX/Getting_Started)
 
+<br>
+<br>
+
+**JavaScript 강의 추천** 
+- [드림코딩 - 자바스크립트 기초 강의](https://www.youtube.com/playlist?list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2)
+- [생활코딩 - WEB2-JAvaScript](https://www.youtube.com/playlist?list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf)
+<br>
+<br>
+
 ## (참고)MVC 패턴
 
 MVC: Model, View, Controller의 약자
@@ -895,8 +904,8 @@ else
 
 ### class란?
 
-- **객체 지향 프로그래밍(OOP, Object-Oriented Programming)**은 모든 데이터를 객체(object)로 취급
-- **클래스(class)**란 객체를 정의하는 틀 또는 설계도와 같은 의미
+- **객체 지향 프로그래밍(OOP, Object-Oriented Programming)** 은 모든 데이터를 객체(object)로 취급
+- **클래스(class)** 란 객체를 정의하는 틀 또는 설계도와 같은 의미
     
     ![[05-02 클래스 - 점프 투 자바 (wikidocs.net)](https://wikidocs.net/214)](/readmeImg/4.java.png)
     
@@ -1063,17 +1072,14 @@ class Tiger **extends Predator** implements Barkable {
 
 ### 사용 목적
 
-<aside>
-💡 추상클래스: 클래스는 상속받아서 기능을 **이용하고 확장** 시킴
+> 💡 추상클래스: 클래스는 상속받아서 기능을 **이용하고 확장** 시킴
 인터페이스: 함수의 껍데기만 선언하고 함수의 구현을 강제하여 **구현 객체의 같은 동작을 보장**
-
-</aside>
 
 참고: [자바의 추상 클래스와 인터페이스 (brunch.co.kr)](https://brunch.co.kr/@kd4/6#comment), [[초급 JAVA]자바 interface 와 abstract 예제로 이해하기 (tistory.com)](https://commin.tistory.com/106)
 
 ### 다형성
 
-- 다형성(**Polymorphism)**: 하나의 객체가 여러개의 자료형 타입을 가질 수 있는 것
+- 다형성(**Polymorphism)** : 하나의 객체가 여러개의 자료형 타입을 가질 수 있는 것
 → **같은 타입이지만 실행 결과가 다양한 결과가 나오는 성질**
 - 다형성은 하나의 타입에서 여러 객체를 대입함으로써 다양한 기능을 이용할 수 있도록 해줌.
 - 다형성을 위해 자바는 부모 클래스로 타입 변환을 허용함.
