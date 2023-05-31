@@ -1,4 +1,5 @@
-### J****Query 로드 순서****
+# 4. JQuery
+### ****JQuery 로드 순서****
 
 ```html
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> <!-- JQuery 먼저! -->
@@ -52,6 +53,110 @@ $("ul").find("li").eq(1).append(" - 추천 메뉴입니다.");
 
 $("ul").find("li").eq(1).append(" - 추천 메뉴입니다.")
 	.end().eq(2).append(" - 추천 메뉴입니다.");
+```
+
+## ****이벤트(event)란?****
+
+> 웹 페이지는 사용자와 수많은 상호작용을 하게 된다.
+사용자는 마우스를 움직이거나, 요소를 클릭하거나, 텍스트 박스에 글을 쓰는 등 수많은 종류의 동작(action)을 수행한다.
+> 
+> 
+> 이러한 사용자의 동작들이 모두 이벤트(event)를 발생시킨다.
+> 즉, 이벤트가 발생했다는 것은 웹 페이지에서 특정 동작이 발생하여, 웹 브라우저가 그 사실을 알려주는 것을 의미한다.
+> 
+> [jQuery 입문 | 이벤트 처리 | 이벤트의 개념(event handler, event object) | devkuma](https://www.devkuma.com/docs/jquery/%EC%9D%B4%EB%B2%A4%ED%8A%B8%EC%9D%98-%EA%B0%9C%EB%85%90-event-handler-event-object/)
+> 
+
+### 이벤트 객체
+
+- `type` : 이벤트 종류
+- `pageX` : 브라우저 화면을 기준으로 한 마우스 X 좌표 위치
+- `pageY` : 브라우저 화면을 기준으로 한 마우스 Y 좌표 위치
+- `preventDefault()` : 기본 이벤트를 제거한다.
+- `stopPropagation()` : 이벤트 전달을 제거한다.
+
+```jsx
+// 메소드 호출 없음
+$("#text1").on("click", function(e){
+    $(this).css('color', 'green'); 
+});
+
+// preventDefault 메소드 호출
+$("#text2").on("click", function(e){
+    $(this).css('color', 'green');
+
+    e.preventDefault();
+});
+
+// stopPropagation 메소드 호출
+$("#text3").on("click", function(e){
+    $(this).css('color', 'green');
+
+    e.stopPropagation();
+});
+
+// 둘다 호출
+$("#text4").on("click", function(e){
+    $(this).css('color', 'green');
+
+    e.preventDefault();
+    e.stopPropagation();
+});
+
+$("div").on("click", function(e){
+    $(this).css('background-color', 'yellow');         
+});
+```
+
+### .ON() & .OFF() & .ONE()
+
+.**********on()**********
+
+1. 선택한 요소에 어떤 타입의 이벤트라도 연결할 수 있다.
+2. 하나의 이벤트 핸들러에 여러 개의 이벤트를 동시에 연결할 수 있다.
+3. 선택한 요소에 여러 개의 이벤트 핸들러와 여러 개의 이벤트를 같이 연결할 수 있다.
+4. 사용자 지정 이벤트(custom event)를 위해 이벤트 핸들러로 데이터를 넘길 수 있다.
+5. 차후에 다루게 될 요소를 이벤트에 바인딩할 수 있다.
+
+```jsx
+$("p").on("click", function(){
+  alert("문장이 클릭되었습니다.");
+});
+
+// 다중 바인
+$("p").on({ 
+  click: function() {
+    $("div").append("마우스가 문장을 클릭했습니다.<br>");
+  },
+  mouseenter: function() {
+    $("div").append("마우스가 커서가 문장 위로 들어왔습니다.<br>");
+  },
+  mouseleave: function() {
+    $("div").append("마우스가 커서가 문장을 빠져 나갔습니다.<br>");
+  }
+});
+```
+
+**.off() - 이벤트 바인딩 제거**
+
+```jsx
+$("#btn").on("click", function() {
+  alert("버튼을 클릭했습니다.");
+});
+$("#btnBind").on("click", function() {
+  $("#btn").on("click").text("버튼 클릭 가능");
+});
+$("#btnUnbind").on("click", function() {
+  $("#btn").off("click").text("버튼 클릭 불가능");
+});
+```
+
+**.one() 바인딩 된 이벤트 핸들러가 한 번만 실행되고나서 실행되지 않음**
+
+```jsx
+$("button").one("click", function() {
+  $("div").append("이제 클릭이 되지 않습니다.<br>");
+});
 ```
 
 ### 요소 추가
@@ -135,55 +240,81 @@ $("#btnRestore").on("click", function() {
 | .toggleClass() | 선택된 요소에 클래스가 없으면 인수로 전달받은 클래스를 추가하고, 전달받은 클래스가 이미 추가되어 있으면 제거한다. |
 | .hasClass() | 인수로 전달받은 값이 선택된 요소의 클래스가 존재하는지 여부를 확인한다. |
 
-# ****이벤트(event)란?****
+## ****이펙트(effect) 효과****
 
-> 웹 페이지는 사용자와 수많은 상호작용을 하게 된다.
-사용자는 마우스를 움직이거나, 요소를 클릭하거나, 텍스트 박스에 글을 쓰는 등 수많은 종류의 동작(action)을 수행한다.
-> 
-> 
-> 이러한 사용자의 동작들이 모두 이벤트(event)를 발생시킨다.
-> 즉, 이벤트가 발생했다는 것은 웹 페이지에서 특정 동작이 발생하여, 웹 브라우저가 그 사실을 알려주는 것을 의미한다.
-> 
-> [jQuery 입문 | 이벤트 처리 | 이벤트의 개념(event handler, event object) | devkuma](https://www.devkuma.com/docs/jquery/%EC%9D%B4%EB%B2%A4%ED%8A%B8%EC%9D%98-%EA%B0%9C%EB%85%90-event-handler-event-object/)
-> 
+### 표시와 숨김
 
-### 이벤트 객체
-
-- `type` : 이벤트 종류
-- `pageX` : 브라우저 화면을 기준으로 한 마우스 X 좌표 위치
-- `pageY` : 브라우저 화면을 기준으로 한 마우스 Y 좌표 위치
-- `preventDefault()` : 기본 이벤트를 제거한다.
-- `stopPropagation()` : 이벤트 전달을 제거한다.
+| .hide() | 선택한 요소를 사라지게 한다. |
+| --- | --- |
+| .show() | 선택한 요소를 나타나게 한다. |
+| .toggle() | 선택한 요소에 .show() 메소드와 .hide() 메소드를 번갈아가며 적용한다. |
 
 ```jsx
-// 메소드 호출 없음
-$("#text1").on("click", function(e){
-    $(this).css('color', 'green'); 
+$("#btnHide").on("click", function() {
+  $("div").hide();
 });
-
-// preventDefault 메소드 호출
-$("#text2").on("click", function(e){
-    $(this).css('color', 'green');
-
-    e.preventDefault();
+$("#btnShow").on("click", function() {
+  $("div").show();
 });
-
-// stopPropagation 메소드 호출
-$("#text3").on("click", function(e){
-    $(this).css('color', 'green');
-
-    e.stopPropagation();
+$("#btnHide").on("click", function() {
+  $("div").hide(1000);
 });
-
-// 둘다 호출
-$("#text4").on("click", function(e){
-    $(this).css('color', 'green');
-
-    e.preventDefault();
-    e.stopPropagation();
+$("#btnShow").on("click", function() {
+  $("div").show("fast");
 });
-
-$("div").on("click", function(e){
-    $(this).css('background-color', 'yellow');         
+$("#btnToggle").on("click", function() {
+  $("div").toggle();
 });
+```
+
+### 페이드 효과
+
+| .fadeIn() | 선택한 요소의 CSS opacity 속성값을 높여가며 요소를 나타지게 함. |
+| --- | --- |
+| .fadeOut() | 선택한 요소의 CSS opacity 속성값을 높여가며 요소를 사라지게 함. |
+| .fadeToggle() | 선택한 요소에 fadeIn() 메소드와 fadeOut() 메소드를 번갈아가며 적용함. |
+| .fadeTo() | 페이드 효과에서 사용하는 opacity 속성값을 직접 설정함. |
+
+```jsx
+$("#btnFadeOut").on("click", function() {
+    $("div").fadeOut();
+});
+$("#btnFadeIn").on("click", function() {
+    $("div").fadeIn();
+});
+$("#btnFadeOut").on("click", function() {
+  $("div").fadeOut(1000);
+});
+$("#btnFadeIn").on("click", function() {
+  $("div").fadeIn("fast");
+});
+$("#btnFadeToggle").on("click", function() {
+  $("div").fadeToggle();
+});
+$("#btnFadeToggle").on("click", function() {
+  $("div").fadeToggle();
+});
+```
+
+> **fade와 show/hide의 다른 점**
+fade: opacity를 줄이다가 display:none; 혹은 그 반대
+show/hide: width, height를 줄이다가 display:none; 혹은 그 반대
+> 
+
+### 슬라이드 효과
+
+| .slideUp() | 선택한 요소의 CSS height 속성값을 높여가며 사라지게 한다. |
+| --- | --- |
+| .slideDown() | 선택한 요소의 CSS height 속성값을 낮춰가며 나타나게 한다. |
+| .slideToggle() | 선택한 요소에 .slideUp() 메소드와 .slideDown() 메소드를 번갈아가며 적용한다. |
+
+```jsx
+$("#divBox1").slideUp(); // 인스를 지정하지 않으면 400(0.4초) 동안 올라가면서 사라진다.
+$("#divBox2").slideUp(500); // id가 "divBox2"인 요소를 0.5초 동안 올라가면서 사라지게 한다.
+$("#divBox1").slideDown(); // 인스를 지정하지 않으면 0.4초(400) 동안 내려오면서 나타나게 한다.
+$("#divBox2").slideDown(500); // id가 "divBox2"인 요소를 0.5초 동안 내려오면서 나타나게 한다.
+
+$("#divBox1").slideToggle(); 
+$("#divBox2").slideToggle(500); // id가 "divBox2"인 요소를 0.5초 동안 올라가면서 사라지거나 내려오면서 나타나게 한다.
+$("#divBox3").slideToggle("fast"); // id가 "divBox3"인 요소를 빠르게 올라가면서 사라지거나 내려오면서 나타나게 한다.
 ```
