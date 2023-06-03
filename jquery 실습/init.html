@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        $(function (){
+            $(".box0").html("안녕하세요.");
+            $(".box0").css({"color": "red"});
+            const style = {
+                "background":"#aabbff",
+                "font-size":"30px"
+            }
+            $(".box0").css(style);
+
+            console.log($(".box0").width());
+
+            console.log($(".box1").html());
+            console.log($(".box1").text());
+
+            $(".box0").html("안녕<b>하세요.</b>");
+            $(".box1").text("저는 <b>이유나</b>입니다.");
+        })
+    </script>
+</head>
+<body>
+    <div class="box0">안녕</div>
+
+    <div class="box1">저는 <span>이유나</span>입니다.</div>
+</body>
+</html>

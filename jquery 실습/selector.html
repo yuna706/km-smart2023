@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("ul").append("<li>append</li>")
+            $("ul").prepend("<li>prepend</li>")
+
+            $(".click").on("click", function (){
+                $(this).parent().append('<li>append2</li>');
+                $(this).siblings().eq(0).text("사실은 내가 첫번째").addClass("on");
+                $(this).removeClass("click");
+                // 1번 방법
+                // $("ul li").not(".click").off("click");
+                // $("ul li").not(".click").on("click", function() {
+                //     $(this).remove();
+                // });
+            })
+
+            $("ul li").not(".click").on("click", function() {
+                $(this).remove();
+            });
+
+            // // 2번 방법
+            // $("ul").not(".click").on("click", "li", function() {
+            //     $(this).remove();
+            // });
+
+            // // 3번째 방법
+            // $("ul li").not(".click").click(function() {
+            //     $(this).remove();
+            // });
+
+
+            $(".slideUp").on("click", () => {
+                $("ul").slideUp();
+            })
+
+            $(".slideDown").on("click", () => {
+                $("ul").slideDown();
+            })
+
+            $(".slideToggle").on("click", () => {
+                $("ul").slideToggle();
+            })
+
+        })
+    </script>
+
+    <style>
+        .on{
+            color: red;
+        }
+        .click{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideUp">슬라이드 업</div>
+    <div class="slideDown">슬라이드 다운</div>
+    <div class="slideToggle">슬라이드 토글</div>
+    <ul>
+        <li>1번째</li>
+        <li class="click">2번째</li>
+        <li>3번째</li>
+    </ul>
+</body>
+</html>

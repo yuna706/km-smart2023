@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $(".click").on("click", function (e){
+                let text = $(this).hasClass("on") ? "클릭하세요" : "빨간 색으로 바뀌었습니다.";
+                $(this).toggleClass("on");
+
+                $(this).text(text);
+            });
+            $(".hover").on("mouseover", function(e){
+                $(e.currentTarget).text("마우스를 올렸습니다.");
+            })
+            $(".hover").on("mouseout", (e) => {
+                $(e.currentTarget).text("마우스를 이미 올렸습니다.");
+                $(".hover").off("mouseover");
+            });
+            
+            $(".show").on("click", function() {
+                $(".box").fadeIn(1000);
+            })
+            $(".hide").on("click", function() {
+                $(".box").fadeOut(1000);
+            })
+        })
+    </script>
+    <style>
+        .on{color: red}
+        .box{
+            width: 100px;
+            height: 100px;
+            background: #aabbee;
+        }
+    </style>
+</head>
+<body>
+    <div class="click">클릭하세요</div>
+    <div class="hover">마우스를 올려보세요.</div>
+
+    <div class="show">보이기</div>
+    <div class="hide">숨기기</div>
+    <div class="box">내가 조종될 박스입니다.</div>
+</body>
+</html>
